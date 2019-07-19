@@ -16,7 +16,6 @@ const ProtectedData = () => {
   }, []);
 
   return (
-    // <div>
     <div>
       <h1>Recipes</h1>
       {recipe.map(recipe => (

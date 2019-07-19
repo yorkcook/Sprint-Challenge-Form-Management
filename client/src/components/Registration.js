@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import axios from "axios";
 
-const Registration = ({ touched, errors, isSubmitting }) => {
+const Registration = ({ touched, errors }) => {
   return (
     <div>
       <h1>Registration</h1>
@@ -16,9 +16,7 @@ const Registration = ({ touched, errors, isSubmitting }) => {
         <label>Password</label>
         <Field type="text" name="password" />
         <p>{touched.password && errors.password}</p>
-        <button type="submit" disabled={isSubmitting}>
-          Register
-        </button>
+        <button type="submit">Register</button>
       </Form>
     </div>
   );
@@ -40,7 +38,7 @@ export default withFormik({
       .required("Password required")
   }),
 
-  handleSubmit(values, formikBag) {
+  handleSubmit(values, { props }) {
     const url = "http://localhost:5000/api/register";
 
     //formikBag.setSubmitting(true);
@@ -49,9 +47,10 @@ export default withFormik({
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
+        props.history.push("/recipes");
       })
       .catch(e => {
-        console.log("Danger Will Robinson", e.response.data);
+        console.log("Danger Will Robinson", e);
       });
   }
 })(Registration);
