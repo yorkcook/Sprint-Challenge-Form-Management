@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "./axiosWithAuth";
-import Data from "./Data";
 
 const ProtectedData = () => {
-  const [protectedData, setProtectedData] = useState([]);
-  console.log("data", protectedData);
+  const [recipe, setRecipe] = useState([]);
 
   useEffect(() => {
     axiosWithAuth()
       .get("http://localhost:5000/api/restricted/data")
       .then(res => {
-        setProtectedData(res.data);
+        setRecipe(res.data);
       })
       .catch(err => {
         console.log("Danger, Danger!", err);
@@ -20,11 +18,12 @@ const ProtectedData = () => {
   return (
     // <div>
     <div>
-      <h1>Data</h1>
-      {/* {protectedData.map(data => (
-          <Data data={data} />
-        ))}
-      </div> */}
+      <h1>Recipes</h1>
+      {recipe.map(recipe => (
+        <div>
+          <h2>{recipe.name}</h2>
+        </div>
+      ))}
     </div>
   );
 };
