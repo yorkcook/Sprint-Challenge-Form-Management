@@ -16,7 +16,9 @@ const Registration = ({ touched, errors, isSubmitting }) => {
         <label>Password</label>
         <Field type="text" name="password" />
         <p>{touched.password && errors.password}</p>
-        <button type="submit">Register</button>
+        <button type="button" disabled={isSubmitting}>
+          Register
+        </button>
       </Form>
     </div>
   );
@@ -45,6 +47,7 @@ export default withFormik({
     axios
       .post(url, values)
       .then(res => {
+        console.log(res);
         localStorage.setItem("token", res.data.token);
       })
       .catch(e => {

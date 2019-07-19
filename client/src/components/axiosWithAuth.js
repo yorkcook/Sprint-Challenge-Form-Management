@@ -8,7 +8,7 @@ const axiosWithAuth = () => {
   return axios.create({
     headers: {
       "Content-Type": "application/json",
-      Authorization: `${token}`
+      Authorization: token
     },
     baseURl: "http://localhost:5000/"
   });

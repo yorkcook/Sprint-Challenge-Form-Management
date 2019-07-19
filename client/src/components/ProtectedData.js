@@ -20,9 +20,9 @@ const ProtectedData = () => {
     <div>
       <div>
         <h1>Data</h1>
-        {protectedData.map(data => (
+        {/* {protectedData.map(data => (
           <h1>{data.name}</h1>
-        ))}
+        ))} */}
       </div>
     </div>
   );
