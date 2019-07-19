@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "./axiosWithAuth";
+import Data from "./Data";
 
 const ProtectedData = () => {
   const [protectedData, setProtectedData] = useState([]);
@@ -17,13 +18,13 @@ const ProtectedData = () => {
   }, []);
 
   return (
+    // <div>
     <div>
-      <div>
-        <h1>Data</h1>
-        {/* {protectedData.map(data => (
-          <h1>{data.name}</h1>
-        ))} */}
-      </div>
+      <h1>Data</h1>
+      {/* {protectedData.map(data => (
+          <Data data={data} />
+        ))}
+      </div> */}
     </div>
   );
 };

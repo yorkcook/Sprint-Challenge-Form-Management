@@ -16,7 +16,7 @@ const Registration = ({ touched, errors, isSubmitting }) => {
         <label>Password</label>
         <Field type="text" name="password" />
         <p>{touched.password && errors.password}</p>
-        <button type="button" disabled={isSubmitting}>
+        <button type="submit" disabled={isSubmitting}>
           Register
         </button>
       </Form>
@@ -43,7 +43,7 @@ export default withFormik({
   handleSubmit(values, formikBag) {
     const url = "http://localhost:5000/api/register";
 
-    formikBag.setSubmitting(true);
+    //formikBag.setSubmitting(true);
     axios
       .post(url, values)
       .then(res => {
