@@ -2,11 +2,11 @@ import React from "react";
 
 import "./App.css";
 import Registration from "./components/Registration";
-import ProtectedData from "./components/ProtectedData";
+import { ProtectedData } from "./components/ProtectedData";
 import { Route, Link } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <h1>Sprint Challenge</h1>
@@ -18,5 +18,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

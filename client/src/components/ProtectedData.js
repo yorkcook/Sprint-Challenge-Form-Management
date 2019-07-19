@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "./axiosWithAuth";
 
-const ProtectedData = () => {
+export const ProtectedData = () => {
   const [recipe, setRecipe] = useState([]);
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const ProtectedData = () => {
   );
 };
 
-export default ProtectedData;
+// export default ProtectedData;
